@@ -37,8 +37,36 @@ CREATE TABLE `ci_sessions` (
 
 LOCK TABLES `ci_sessions` WRITE;
 /*!40000 ALTER TABLE `ci_sessions` DISABLE KEYS */;
-INSERT INTO `ci_sessions` VALUES ('72e23ad5d56c0c2d31fc583567666c40c9762592','127.0.0.1',1475337128,'__ci_last_regenerate|i:1475337128;'),('bb789dc5ff6c11c1dc290df796a929a935c6e65d','127.0.0.1',1475337149,'__ci_last_regenerate|i:1475337149;'),('18697a3a55576b6588cb6241d3a744ab544b7126','127.0.0.1',1475337605,'__ci_last_regenerate|i:1475337605;'),('ca67b715112bc4d1f52dd54411e2a2771b060ba3','127.0.0.1',1475337677,'__ci_last_regenerate|i:1475337676;'),('6cb4e236a08503bb66c1be5b867408ac8099abc0','127.0.0.1',1475337746,'__ci_last_regenerate|i:1475337746;'),('415f28cdd53e4a7cb17051fe346e5a499f24a208','127.0.0.1',1475337773,'__ci_last_regenerate|i:1475337773;');
+INSERT INTO `ci_sessions` VALUES ('72e23ad5d56c0c2d31fc583567666c40c9762592','127.0.0.1',1475337128,'__ci_last_regenerate|i:1475337128;'),('bb789dc5ff6c11c1dc290df796a929a935c6e65d','127.0.0.1',1475337149,'__ci_last_regenerate|i:1475337149;'),('18697a3a55576b6588cb6241d3a744ab544b7126','127.0.0.1',1475337605,'__ci_last_regenerate|i:1475337605;'),('ca67b715112bc4d1f52dd54411e2a2771b060ba3','127.0.0.1',1475337677,'__ci_last_regenerate|i:1475337676;'),('6cb4e236a08503bb66c1be5b867408ac8099abc0','127.0.0.1',1475337746,'__ci_last_regenerate|i:1475337746;'),('415f28cdd53e4a7cb17051fe346e5a499f24a208','127.0.0.1',1475337773,'__ci_last_regenerate|i:1475337773;'),('bc8cba670619f7c772b96d762339a969e377ae16','127.0.0.1',1475339734,'__ci_last_regenerate|i:1475339734;'),('fd59bb1867d3565a918433f4327191586e18bd56','127.0.0.1',1475339739,'__ci_last_regenerate|i:1475339739;'),('91d4ec8a533f27446a8b8de64d6f6330537c44ba','127.0.0.1',1475339785,'__ci_last_regenerate|i:1475339785;'),('e4a7668e250cfc1fae4ec471e138b9239e2416c7','127.0.0.1',1475339921,'__ci_last_regenerate|i:1475339921;'),('b34270ebab981a9c586c43279810f3ea8ea976e3','127.0.0.1',1475339992,'__ci_last_regenerate|i:1475339992;'),('107feafc496450ff84b704ec211dbc99b746c462','127.0.0.1',1475340022,'__ci_last_regenerate|i:1475340022;'),('2e252cf981fa9b20f89c7d85f04ffbefbe36d91b','127.0.0.1',1475340053,'__ci_last_regenerate|i:1475340053;'),('0edd3fc778842015c1f334f16d06dddfd67b224a','127.0.0.1',1475340187,'__ci_last_regenerate|i:1475340187;'),('c4c72eba34c28dc52b1d9ae6486f5a9af5abd337','127.0.0.1',1475340257,'__ci_last_regenerate|i:1475340257;'),('39ecf1a654392a3375a75fec72e354dc5a98276f','127.0.0.1',1475340301,'__ci_last_regenerate|i:1475340301;id|s:1:\"1\";');
 /*!40000 ALTER TABLE `ci_sessions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `files`
+--
+
+DROP TABLE IF EXISTS `files`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `files` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `path` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `hash` varchar(100) DEFAULT NULL,
+  `size` int(10) unsigned DEFAULT NULL,
+  `loss_price` float DEFAULT NULL,
+  `insurance_duration` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `files`
+--
+
+LOCK TABLES `files` WRITE;
+/*!40000 ALTER TABLE `files` DISABLE KEYS */;
+/*!40000 ALTER TABLE `files` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -77,4 +105,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-01 19:04:01
+-- Dump completed on 2016-10-01 22:30:02
