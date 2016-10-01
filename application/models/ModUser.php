@@ -48,6 +48,6 @@ class ModUser extends CI_Model
       return false;
     }
 
-    return $this->session->get_userdata('id');
+    return $this->session->get_userdata('id')['id'];
   }
 }

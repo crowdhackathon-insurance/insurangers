@@ -1,25 +1,25 @@
 <?php
 
-class MocCalculate extends CI_Model
+class ModCalculate extends CI_Model
 {
   public function __construct()
   {
-    parent::construct();
+    parent::__construct();
     $this->load->database();
     $this->load->model('ModUser','user');
-    $this->load->helper('');
+    $this->load->helper('file');
   }
 
   /**
   * Method that adds a hash from a file to the database.
   *
-  * @param string $temp_filename Temporary filename of the file stored into the database.
+  * @param string $file_array The value from a specific file input
   * @param string $file_name Filename of the user's file stored into the database.
   * @param $stored_path The path where the file is stored to the user's computer.
   *
   * @return boolean | int
   */
-  public function add_hash($temp_filename, $file_name, $stored_path, $estimated_cost, $insurance_duration)
+  public function add_hash(array $file_array ,$stored_path, $estimated_cost, $insurance_duration)
   {
     $user_id=$this->user->is_logedIn();
 
@@ -30,21 +30,25 @@ class MocCalculate extends CI_Model
 
     try
     {
-      $dataToInsert=array('filename'=>$file_name,'path'=>$stored_path,'loss_price'=>$estimated_cost,'insurance_duration'=>$insurance_duration);
+      if((int)$estimated_cost>0 && (int)$insurance_duration>0 && $file_array['error']===UPLOAD_ERR_OK)
+      {
+        $dataToInsert=array('user_id'=>$user_id,'name'=>$file_array['name'],'path'=>$stored_path,'loss_price'=>$estimated_cost,'insurance_duration'=>$insurance_duration);
 
-      $dataToInsert['hash']=fileMd5($temp_filename);
-      $dataToInsert['size']=fileKilobyteSize($temp_filename);
+        $dataToInsert['hash']=fileMd5($file_array['tmp_name']);
+        $dataToInsert['size']=toKilobytes($file_array['size']);
 
-      $this->db->insert('files',$dataToInsert);
+        $this->db->insert('files',$dataToInsert);
 
-      $file_id=$this->db->insert_id();
+        $file_id=$this->db->insert_id();
 
-      return $file_id;
+        return $file_id;
+      }
     }
     catch(Exception $e)
     {
       return false;
     }
 
+    return false;
   }
 }

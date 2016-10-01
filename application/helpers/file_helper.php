@@ -1,5 +1,18 @@
 <?php
 
+if(!function_exists('toKilobytes'))
+{
+  /**
+  * Calculate the file's size into kilobytes
+  * @param float $size The size in BYTES of the file
+  * @return int
+  */
+  function toKilobytes($size)
+  {
+    return floatval($size)/1024;
+  }
+}
+
 if(!function_exists('fileKilobyteSize'))
 {
   /**
@@ -14,9 +27,11 @@ if(!function_exists('fileKilobyteSize'))
       throw new Exception("Filename does not exist");
     }
 
-    return filesize($filename)/1024;
+    return toKilobytes(filesize($filename));
   }
 }
+
+
 
 if(!function_exists('fileMd5'))
 {
