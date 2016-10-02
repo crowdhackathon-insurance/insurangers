@@ -34,17 +34,18 @@ class User extends CI_Controller
     $password=$this->input->post('password');
 
     $id=$this->user->login($username,$password);
-    
+
     $statusData=null;
     if($id===false)
     {
       $statusData=status_err('Cannot Login',null);
+      $this->load->view('json_response.php',$statusData);
     }
     else
     {
-      $statusData=status_ok('Login success',$id);
+      $this->load->helper('url');
+      redirect('welcome/file_form');
     }
 
-    $this->load->view('json_response.php',$statusData);
   }
 }
