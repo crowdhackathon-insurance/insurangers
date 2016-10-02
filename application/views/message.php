@@ -5,7 +5,7 @@ $this->load->view('header',['title'=>$message]);
 
 ?>
 
-<div class="panel <?=($status)?'panel-success':'panel-danger'?>">
+<div class="panel">
     <div class="panel-body">
       <?=$message;?>
     </div>

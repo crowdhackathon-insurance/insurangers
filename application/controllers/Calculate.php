@@ -33,8 +33,8 @@ class Calculate extends CI_Controller
     }
     else
     {
-      $retData=status_ok("Insert success",$ret);
-      $this->load->view('message',$retData);
+      $ret=$this->calculate->calculateMonthlyFee($estimated_cost,$insurance_duration);
+      $this->load->view('message',['message'=>"Your monthly fee is: <strong>".number_format($ret,2)."</strong> Euros"]);
 
     }
 
