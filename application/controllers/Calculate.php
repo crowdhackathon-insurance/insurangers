@@ -24,17 +24,20 @@ class Calculate extends CI_Controller
     if($ret===-1)
     {
       $retData=status_err("User has not logedin",null);
+      $this->load->view('json_response',$retData);
     }
     elseif($ret===false)
     {
       $retData=status_err("An error occured",null);
+      $this->load->view('json_response',$retData);
     }
     else
     {
       $retData=status_ok("Insert success",$ret);
+      $this->load->view('message',$retData);
+
     }
 
-    $this->load->view('json_response',$retData);
   }
 
 
