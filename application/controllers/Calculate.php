@@ -36,4 +36,16 @@ class Calculate extends CI_Controller
 
     $this->load->view('json_response',$retData);
   }
+
+
+  public function monthlyFee()
+  {
+    $estimated_cost=$this->input->post('estimated_cost');
+    $insurance_duration=$this->input->post('insurance_duration');
+
+    $ret=$this->calculate->calculateMonthlyFee($estimated_cost,$insurance_duration);
+    $retData=status_ok("The monthly fee is:",$ret);
+
+    $this->load->view('json_response',$retData);
+  }
 }

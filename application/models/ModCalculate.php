@@ -15,7 +15,9 @@ class ModCalculate extends CI_Model
   *
   * @param string $file_array The value from a specific file input
   * @param string $file_name Filename of the user's file stored into the database.
-  * @param $stored_path The path where the file is stored to the user's computer.
+  * @param string $stored_path The path where the file is stored to the user's computer.
+  * @param numeric $estimated_cost The money that the user needs to get back when the file is lost
+  * @param int $insurance_duration How many months the user needs to insure the file.
   *
   * @return boolean | int
   */
@@ -51,4 +53,19 @@ class ModCalculate extends CI_Model
 
     return false;
   }
+
+
+  /**
+  * Calculate the monthly fee that the user needs to pay.
+  *
+  * @param numeric $estimated_cost The money that the user needs to get back when the file is lost
+  * @param int $insurance_duration How many months the user needs to insure the file.
+  *
+  * @return float
+  */
+  public function calculateMonthlyFee($estimated_cost,$insure_length)
+  {
+    return (floatval($estimated_cost)/(int)$insure_length)+3;
+  }
+
 }
