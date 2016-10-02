@@ -44,13 +44,15 @@ if(!function_exists('fileMd5'))
   */
   function fileMd5($filename)
   {
-    $contents=file_get_contents($filename);
+    // $contents=file_get_contents($filename);
+    //
+    // if($contents===FALSE)
+    // {
+    //   throw new Exception('Cannot read file');
+    // }
+    //
+    // return md5($contents);
 
-    if($contents===FALSE)
-    {
-      throw new Exception('Cannot read file');
-    }
-
-    return md5($contents);
+    return hash_file('sha256', $filename);
   }
 }

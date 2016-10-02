@@ -29,7 +29,7 @@ $this->load->helper('form');
 		  </div>
 
 			<div class="form-group">
-			 <label for="inputPath" class="control-label"Διάρκεια Ασφάλισης</label>
+			 <label for="inputPath" class="control-label">Διάρκεια Ασφάλισης (Μήνες)</label>
 				 <input type="text" class="form-control" name="insurance_duration" id="inputPath" placeholder="Διάρκεια ασφάλησης">
 			</div>
 
