@@ -28,7 +28,7 @@ class Welcome extends CI_Controller {
 
 	public function file_form()
 	{
-		$this->load->view('header',['title'=>'Καταχώριση αρχείου προς ασφάλιση']);
+		$this->load->view('header',['title'=>'Καταχώριση αρχείου προς ασφάλιση','javascripts'=>['assets/path.js']]);
 		$this->load->view('title',['title'=>'Καταχώριση αρχείου προς ασφάλιση']);
 		$this->load->view('file_form');
 		$this->load->view('footer');
